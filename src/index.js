@@ -78,7 +78,7 @@ for(let i = 0; i < summaryb.length; i++) {
 }
 for(let i = 0; i < all.length; i++) {
          var width = 600;
-         var height = 600;
+         var height = 40;
         
          var svg = d3.select("#svgcontainer")
             .append("svg")
@@ -94,9 +94,9 @@ for(let i = 0; i < all.length; i++) {
                 svg.selectAll("circle")
               .data(all[i])
                .enter().append("circle")
-                .attr("cx", function(d) {return d.row})
-                .attr("cy", function(d) {return d.row})
-                .attr("r", function(d) { return d.players / 10})
+                .attr("cx", function(d, idx) {return (d.row /10) * (idx + 10)})
+                .attr("cy", 2)
+                .attr("r", function(d) { return (d.players / 10)})
                 .style("fill", function(d) { return d.color})
       
 
