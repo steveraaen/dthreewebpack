@@ -78,9 +78,10 @@ for(let i = 0; i < summaryb.length; i++) {
    }
   
 }
+console.log(summaryb[0])
 for(let i = 0; i < all.length; i++) {
          var width = 600;
-         var height = 60;
+         var height = 40;
         
          var svg = d3.select("#svgcontainer")
             .append("svg")
@@ -97,10 +98,10 @@ for(let i = 0; i < all.length; i++) {
               .data(all[i])
                .enter().append("circle")
                 .attr("cx", function(d, idx) {return (d.row /10) * (idx + 5)})
-                .attr("cy", 1)
+                .attr("cy", 14)
                 .attr("r", function(d) { return (d.players / 6)})
-                .style("fill", function(d) { return d.color})
-                .style("paddingTop", 12)
+                .style("clipPath", function(d) { return d.picurl})
+               
       
 
 //  -------------   tooltip   -----------------------
