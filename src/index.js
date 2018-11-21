@@ -1,6 +1,8 @@
-import summaryb from '../utils/playertab.js'
+
+import tms from '../utils/teams.js'
 import * as d3 from 'd3';
 
+var summaryb = tms
 
       var yrs = [
       {
@@ -78,7 +80,7 @@ for(let i = 0; i < summaryb.length; i++) {
 }
 for(let i = 0; i < all.length; i++) {
          var width = 600;
-         var height = 40;
+         var height = 60;
         
          var svg = d3.select("#svgcontainer")
             .append("svg")
@@ -94,10 +96,11 @@ for(let i = 0; i < all.length; i++) {
                 svg.selectAll("circle")
               .data(all[i])
                .enter().append("circle")
-                .attr("cx", function(d, idx) {return (d.row /10) * (idx + 10)})
-                .attr("cy", 2)
-                .attr("r", function(d) { return (d.players / 10)})
+                .attr("cx", function(d, idx) {return (d.row /10) * (idx + 5)})
+                .attr("cy", 1)
+                .attr("r", function(d) { return (d.players / 6)})
                 .style("fill", function(d) { return d.color})
+                .style("paddingTop", 12)
       
 
 //  -------------   tooltip   -----------------------
