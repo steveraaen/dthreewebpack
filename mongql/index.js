@@ -8,7 +8,6 @@ require('dotenv').config()
 
 const app = express();
 const PORT = 3000;
-
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_LINK);
 
@@ -17,9 +16,9 @@ app.get('/', (req, res) => {
         msg: 'Welcome to GraphQL'
     })
 });
-app.get('/load', (req, res) => {
+/*app.get('/load', (req, res) => {
 	Player.insertMany(playermaster)
-})
+})*/
 
 app.use('/graphql', graphlHTTP({
     schema: schema,
