@@ -1,17 +1,21 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const PlayerSchema = new Schema({
+    _id: Schema.Types.ObjectId,
 	 id: {
         type: Number,
+        required: true,
+        unique: true,
+        dropDups: true
+    },
+    playerName: {
+        type: String
+    },
+    playerCode: {
+        type: String,
         required: true
     },
-    playername: {
-        type: String
-    },
-    player: {
-        type: String
-    },
-     yr: {
+     year: {
         type: Number
     },
     age: {
@@ -26,6 +30,8 @@ const PlayerSchema = new Schema({
     teams: {
         type: String
     },
+    minors: [{ type: Schema.Types.ObjectId, ref: 'Minor' }],
+    majors: [{ type: Schema.Types.ObjectId, ref: 'Major' }]
 });
 export default mongoose.model('player', PlayerSchema);
 

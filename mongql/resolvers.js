@@ -1,9 +1,23 @@
 import Player from './models/Player';
+import Major from './models/Major';
+import Minor from './models/Minor';
+import CurMLBPlayer from './models/CurMLBPlayer';
 export const resolvers = {
     Query: {
-        async allPlayers() {
-            return await Player.find();
+         allPlayers() {
+            return  Player.find();
+        },
+           allMinors() {
+            return  Minor.find({parent: 'NYM'});
+        },
+           allMajors() {
+            return  Major.find();
+        },
+         allCurMLBPlayers() {
+        	 return  CurMLBPlayer.find()
         }
+
+
     },
     Mutation: {
         async createPlayer(root, {

@@ -2,8 +2,14 @@ import express from 'express';
 import graphlHTTP from 'express-graphql';
 import mongoose from 'mongoose';
 import Player from './models/Player.js'
+import Minor from './models/Minor.js'
+import Major from './models/Major.js'
+import CurMLBPlayer from './models/CurMLBPlayer.js'
 import schema from './schema';
-import playermaster from './playermaster.js'
+import majors from './majors.js'
+import minors from './minors.js'
+import playerMaster from './playerMaster.js'
+import curMLBPlayers from './curMLBPlayers.js'
 require('dotenv').config()
 
 const app = express();
@@ -17,7 +23,17 @@ app.get('/', (req, res) => {
     })
 });
 /*app.get('/load', (req, res) => {
-	Player.insertMany(playermaster)
+	Minor.insertMany(minors)
+})*/
+
+/*app.get('/api/pop', (req, res) => {
+	Major.
+	findOne({majteam: "NYM"}).
+	populate('players', 'player').
+	exec(function(err, tm) {
+		console.log(tm)
+		res.json(tm)
+	})
 })*/
 
 app.use('/graphql', graphlHTTP({
