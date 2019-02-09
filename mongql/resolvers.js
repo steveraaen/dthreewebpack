@@ -2,6 +2,7 @@ import Player from './models/Player';
 import Major from './models/Major';
 import Minor from './models/Minor';
 import CurMLBPlayer from './models/CurMLBPlayer';
+import SuperMaster from './models/SuperMaster';
 export const resolvers = {
     Query: {
          allPlayers() {
@@ -15,8 +16,10 @@ export const resolvers = {
         },
          allCurMLBPlayers() {
         	 return  CurMLBPlayer.find()
-        }
-
+        },
+         allSuperMasters() {
+             return  SuperMaster.find()
+        },
 
     },
     Mutation: {

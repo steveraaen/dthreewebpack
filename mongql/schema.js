@@ -24,8 +24,8 @@ type Player {
   franchise: String
   classes: String
   teams: String
-
  }
+
   type CurMLBPlayer {
     _id: ID!
     ID: Int
@@ -39,12 +39,27 @@ type Player {
   picurl: String
   children: [Minor]
  }
-
+type SuperMaster {
+    _id: ID!
+    player: String
+    playerName: String
+    year: Int
+    franchise: String
+    class: String
+    age: Int
+    grade: String
+    minorTeam: String
+    currentTeam: String
+    league: String
+    majteam: String
+    picurl: String
+}
 type Query {
   allPlayers: [Player]
   allMinors: [Minor]
   allMajors: [Major]
   allCurMLBPlayers: [CurMLBPlayer]
+  allSuperMasters: [SuperMaster]
  }
 
 input PlayerInput {
@@ -61,4 +76,7 @@ const schema = makeExecutableSchema({
 });
 export default schema;
 
+
+
+    
 	
